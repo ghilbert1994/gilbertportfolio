@@ -1,0 +1,1091 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gilbert Dela Cruz - BSIT Student Portfolio">
+<meta name="theme-color" content="#f8f6f0">
+<title>Gilbert Dela Cruz | Student Portfolio</title>
+
+<style>
+:root {
+    --bg: #f8f6f0;
+    --paper: #fffefa;
+    --ink: #25231f;
+    --muted: #777269;
+    --gold: #b28a45;
+    --gold-light: #dfc99d;
+    --line: #e9e2d5;
+    --dark: #202124;
+    --editor: #282a2d;
+    --editor2: #222427;
+    --shadow: 0 18px 48px rgba(46,38,23,.09);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.topbar {
+    height: 36px;
+    background: var(--dark);
+    color: #c8c8c8;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 0 18px;
+    font: 11px Consolas, monospace;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #df7168;
+}
+
+.dot:nth-child(2) {
+    background: #e4bd58;
+}
+
+.dot:nth-child(3) {
+    background: #7eb77a;
+}
+
+.filehint {
+    margin-left: auto;
+    color: #96999e;
+}
+
+.shell {
+    max-width: 1320px;
+    margin: auto;
+    padding: 0 5.5%;
+}
+
+/* NAVIGATION */
+
+nav {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font: 600 15px Georgia, serif;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--gold-light);
+    color: var(--gold);
+    font: 13px Georgia, serif;
+}
+
+.navlinks {
+    display: flex;
+    gap: 27px;
+    font-size: 12px;
+    color: #625e55;
+}
+
+.navlinks a:hover {
+    color: var(--gold);
+}
+
+.nav-cta {
+    padding: 10px 15px;
+    border: 1px solid var(--gold-light);
+    font-size: 11px;
+    letter-spacing: .07em;
+}
+
+/* HERO */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.12fr .88fr;
+    gap: 7%;
+    align-items: center;
+    padding: 84px 0 80px;
+    min-height: 590px;
+}
+
+.eyebrow {
+    font: 11px Consolas, monospace;
+    color: var(--gold);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font: 500 clamp(45px, 6vw, 78px)/1.05 Georgia, serif;
+    letter-spacing: -.045em;
+    margin: 20px 0;
+}
+
+.hero h1 em {
+    font-weight: 400;
+    color: var(--gold);
+}
+
+.intro {
+    max-width: 570px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 18px;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+.primary {
+    background: var(--ink);
+    color: white;
+    border: 1px solid var(--ink);
+}
+
+.primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+}
+
+.secondary {
+    border: 1px solid var(--gold-light);
+}
+
+.secondary:hover {
+    background: #f0e8d8;
+}
+
+.quick-stats {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 36px 0 0;
+}
+
+.quick-stats strong {
+    display: block;
+    font: 24px Georgia, serif;
+    color: var(--gold);
+}
+
+.quick-stats span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+/* VS CODE EDITOR */
+
+.editor {
+    background: var(--editor);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px #1c1c1c24;
+    transform: rotate(1deg);
+}
+
+.editor-head {
+    height: 42px;
+    background: #303236;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 14px;
+    color: #bfc1c5;
+    font: 11px Consolas, monospace;
+}
+
+.editor-head .dot {
+    width: 8px;
+    height: 8px;
+}
+
+.editor-body {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    min-height: 285px;
+}
+
+.gutter {
+    background: var(--editor2);
+    color: #666b72;
+    text-align: right;
+    padding: 18px 10px;
+    font: 11px/2 Consolas, monospace;
+}
+
+.code {
+    padding: 18px 15px;
+    color: #d5d7da;
+    font: 11px/2 Consolas, monospace;
+    white-space: pre-wrap;
+}
+
+.pink {
+    color: #d99bc4;
+}
+
+.gold {
+    color: #e3c27b;
+}
+
+.green {
+    color: #a5c98b;
+}
+
+.blue {
+    color: #8eb8df;
+}
+
+.comment {
+    color: #7e858e;
+}
+
+.editor-foot {
+    border-top: 1px solid #3b3d41;
+    padding: 9px 13px;
+    color: #a4a7ac;
+    font: 10px Consolas, monospace;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 32px;
+}
+
+.section-heading h2 {
+    font: 500 clamp(31px, 4vw, 46px) Georgia, serif;
+    letter-spacing: -.03em;
+    margin: 10px 0 0;
+}
+
+.section-heading > p:last-child {
+    max-width: 410px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 8%;
+}
+
+.about-copy {
+    font: 19px/1.75 Georgia, serif;
+    color: #555047;
+}
+
+.about-copy strong {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+}
+
+.info-card,
+.skill-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 17px;
+    border-radius: 3px;
+}
+
+.info-card small,
+.skill-card small {
+    font: 10px Consolas, monospace;
+    letter-spacing: .12em;
+    color: var(--gold);
+}
+
+.info-card strong {
+    display: block;
+    font: 15px Georgia, serif;
+    margin-top: 8px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.skill-card h3 {
+    font: 18px Georgia, serif;
+    margin: 9px 0;
+}
+
+.skill-card p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.chip-list span {
+    background: #f3efe6;
+    color: #77623e;
+    padding: 6px 8px;
+    font: 10px Consolas, monospace;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.project-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 22px;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    transition: .22s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--gold-light);
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gold);
+    font: 10px Consolas, monospace;
+    letter-spacing: .08em;
+}
+
+.project-card h3 {
+    font: 21px/1.25 Georgia, serif;
+    margin: 25px 0 10px;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.project-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.tags span {
+    background: #f3efe6;
+    color: #77623e;
+    padding: 6px 8px;
+    font: 10px Consolas, monospace;
+}
+
+/* EDUCATION TIMELINE */
+
+.timeline {
+    border-left: 1px solid var(--gold-light);
+    margin-left: 8px;
+    padding-left: 27px;
+    display: grid;
+    gap: 25px;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    left: -32px;
+    top: 4px;
+}
+
+.timeline-item small {
+    font: 10px Consolas, monospace;
+    color: var(--gold);
+    letter-spacing: .08em;
+}
+
+.timeline-item h3 {
+    font: 19px Georgia, serif;
+    margin: 7px 0;
+}
+
+.timeline-item p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 760px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--dark);
+    color: #f7f2e8;
+    padding: 65px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8%;
+    align-items: center;
+}
+
+.contact h2 {
+    font: 500 clamp(36px, 4.5vw, 55px)/1.1 Georgia, serif;
+    margin: 14px 0;
+}
+
+.contact h2 em {
+    color: #d9bd83;
+    font-weight: 400;
+}
+
+.contact p {
+    color: #bcb8af;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.contact-links {
+    display: grid;
+    gap: 12px;
+}
+
+.contact-links a {
+    border-bottom: 1px solid #484743;
+    padding: 12px 0;
+    color: #e8d5a8;
+    font: 12px Consolas, monospace;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px 5.5%;
+    color: var(--muted);
+    font: 10px Consolas, monospace;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:850px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+        gap: 38px;
+    }
+
+    .editor {
+        max-width: 620px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:580px) {
+    .shell {
+        padding: 0 6%;
+    }
+
+    .navlinks {
+        display: none;
+    }
+
+    .hero {
+        padding: 52px 0;
+    }
+
+    .quick-stats {
+        gap: 18px;
+    }
+
+    .quick-stats strong {
+        font-size: 21px;
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading > p:last-child {
+        margin-top: 13px;
+    }
+
+    .info-grid,
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        padding: 52px 7%;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- VS CODE TOP BAR -->
+
+<div class="topbar">
+    <div class="dots">
+        <i class="dot"></i>
+        <i class="dot"></i>
+        <i class="dot"></i>
+    </div>
+    <span>Visual Studio Code</span>
+    <span class="filehint">student-portfolio.html — Personal Workspace</span>
+</div>
+
+<div class="shell">
+
+<!-- NAVIGATION -->
+
+<header>
+<nav>
+    <a class="brand" href="#home">
+        <span class="brand-mark">GD</span>
+        <span>Gilbert Dela Cruz</span>
+    </a>
+
+    <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <a class="nav-cta" href="#contact">SAY HELLO ↗</a>
+</nav>
+</header>
+
+<main>
+
+<!-- HOME SECTION -->
+
+<section class="hero" id="home">
+
+<div>
+    <p class="eyebrow">
+        BSIT STUDENT · FUTURE IT PROFESSIONAL
+    </p>
+
+    <h1>
+        Learning today.<br>
+        <em>Building tomorrow.</em>
+    </h1>
+
+    <p class="intro">
+        Hi, I'm <strong>Gilbert Dela Cruz</strong>, an Information Technology student at La Consolacion University Philippines. I'm exploring the world of programming, web development, and system design while building my skills through academic and personal projects.
+    </p>
+
+    <div class="actions">
+        <a class="btn primary" href="#projects">
+            Explore my projects ↗
+        </a>
+
+        <a class="btn secondary" href="#about">
+            Get to know me
+        </a>
+    </div>
+
+    <ul class="quick-stats">
+        <li>
+            <strong>BSIT</strong>
+            <span>Degree program</span>
+        </li>
+
+        <li>
+            <strong>LCUP</strong>
+            <span>My university</span>
+        </li>
+
+        <li>
+            <strong>∞</strong>
+            <span>Room to grow</span>
+        </li>
+    </ul>
+</div>
+
+<!-- VS CODE WINDOW -->
+
+<div class="editor">
+
+    <div class="editor-head">
+        <div class="dots">
+            <i class="dot"></i>
+            <i class="dot"></i>
+            <i class="dot"></i>
+        </div>
+        <span>✦ &nbsp; student.js</span>
+    </div>
+
+    <div class="editor-body">
+
+        <div class="gutter">
+            1<br>2<br>3<br>4<br>5<br>
+            6<br>7<br>8<br>9<br>10
+        </div>
+
+        <div class="code">
+<span class="pink">const</span> <span class="blue">student</span> = {<br>
+  <span class="gold">name</span>: <span class="green">"Gilbert Dela Cruz"</span>,<br>
+  <span class="gold">course</span>: <span class="green">"BS Information Technology"</span>,<br>
+  <span class="gold">university</span>: <span class="green">"LCUP"</span>,<br>
+  <span class="gold">interests</span>: [<span class="green">"Coding, Design, Excel"</span>],<br>
+  <span class="gold">mindset</span>: <span class="green">"Keep learning"</span>,<br>
+  <span class="gold">goal</span>: <span class="green">"Build useful solutions"</span><br>
+};<br><br>
+<span class="comment">// Every expert starts as a learner.</span><br>
+<span class="pink">export default</span> student;
+        </div>
+
+    </div>
+
+    <div class="editor-foot">
+        <span>● Ready to learn</span>
+        <span>UTF-8</span>
+        <span>JavaScript</span>
+    </div>
+
+</div>
+
+</section>
+
+<!-- ABOUT ME -->
+
+<section class="section" id="about">
+
+<div class="section-heading">
+    <div>
+        <p class="eyebrow">ABOUT ME</p>
+        <h2>A student with a passion for technology.</h2>
+    </div>
+
+    <p>
+        I'm building my foundation one lesson, one challenge, and one project at a time.
+    </p>
+</div>
+
+<div class="about-grid">
+
+    <div class="about-copy">
+        As a BSIT student, I enjoy discovering how technology can solve everyday problems. I'm still learning and improving, but I believe every project is an opportunity to become better. My goal is to develop not only my technical skills, but also my <strong>creativity, confidence, and ability to work with others.</strong>
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <small>COURSE</small>
+            <strong>BS Information Technology</strong>
+        </div>
+
+        <div class="info-card">
+            <small>SCHOOL</small>
+            <strong>La Consolacion University Philippines</strong>
+        </div>
+
+        <div class="info-card">
+            <small>INTERESTS</small>
+            <strong>Web & app development</strong>
+        </div>
+
+        <div class="info-card">
+            <small>CURRENT FOCUS</small>
+            <strong>Learning through projects</strong>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+
+<section class="section" id="education">
+
+<div class="section-heading">
+    <div>
+        <p class="eyebrow">EDUCATION</p>
+        <h2>My academic journey.</h2>
+    </div>
+
+    <p>
+        The classroom is where I build the knowledge; projects are where I put it into practice.
+    </p>
+</div>
+
+<div class="timeline">
+
+    <div class="timeline-item">
+        <small>CURRENT STUDIES</small>
+        <h3>Bachelor of Science in Information Technology</h3>
+        <p>
+            La Consolacion University Philippines — CITE Department. Studying programming, systems development, databases, networking, and other areas of IT.
+        </p>
+    </div>
+
+    <div class="timeline-item">
+        <small>CONTINUOUS LEARNING</small>
+        <h3>Academic & Personal Development</h3>
+        <p>
+            Practicing through coding activities, school requirements, and application development projects.
+        </p>
+    </div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+
+<section class="section" id="skills">
+
+<div class="section-heading">
+    <div>
+        <p class="eyebrow">SKILLS & TECHNOLOGIES</p>
+        <h2>Things I'm learning and practicing.</h2>
+    </div>
+
+    <p>
+        These are tools and concepts I have explored through classes and hands-on activities. I'm continuously working to improve.
+    </p>
+</div>
+
+<div class="skills-grid">
+
+    <div class="skill-card">
+        <small>01 / FRONTEND</small>
+        <h3>Web Design & Development</h3>
+        <p>
+            Creating page structures and styling user interfaces.
+        </p>
+
+        <div class="chip-list">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Bootstrap</span>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <small>02 / BACKEND & DATA</small>
+        <h3>Programming & Databases</h3>
+        <p>
+            Learning application logic, data handling, and database operations.
+        </p>
+
+        <div class="chip-list">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>Python</span>
+            <span>Java</span>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <small>03 / TOOLS & PLATFORMS</small>
+        <h3>Development Tools</h3>
+        <p>
+            Working with development environments and project tools.
+        </p>
+
+        <div class="chip-list">
+            <span>VS Code</span>
+            <span>PyCharm</span>
+            <span>XAMPP</span>
+            <span>Android Studio</span>
+            <span>Git basics</span>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section class="section" id="projects">
+
+<div class="section-heading">
+    <div>
+        <p class="eyebrow">STUDENT PROJECTS</p>
+        <h2>Learning by creating.</h2>
+    </div>
+
+    <p>
+        Selected academic and practice projects that show what I've been exploring as an IT student.
+    </p>
+</div>
+
+<div class="projects-grid">
+
+    <article class="project-card">
+
+        <div class="project-top">
+            <span>WEB-BASED SYSTEM</span>
+            <span>01</span>
+        </div>
+
+        <h3>Computer Laboratory Booking System</h3>
+
+        <p>
+            A capstone project concept for managing computer laboratory reservations, reducing scheduling conflicts, and improving laboratory resource utilization in the CITE Department.
+        </p>
+
+        <div class="tags">
+            <span>PHP</span>
+            <span>React</span>
+            <span>MySQL</span>
+        </div>
+
+    </article>
+
+    <article class="project-card">
+
+        <div class="project-top">
+            <span>WEB APPLICATION</span>
+            <span>02</span>
+        </div>
+
+        <h3>We Lav Fam Resort Management System</h3>
+
+        <p>
+            A database-driven reservation system concept for managing guests, rooms, bookings, payments, and resort services.
+        </p>
+
+        <div class="tags">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>Bootstrap</span>
+        </div>
+
+    </article>
+
+    <article class="project-card">
+
+        <div class="project-top">
+            <span>ANDROID APPLICATION</span>
+            <span>03</span>
+        </div>
+
+        <h3>Task Mate App</h3>
+
+        <p>
+            A beginner-friendly Android task management application designed to help users organize, track, and manage their daily tasks through an interactive and user-friendly interface. Created to practice Kotlin programming and Android UI development.
+        </p>
+
+        <div class="tags">
+            <span>Kotlin</span>
+            <span>Android Studio</span>
+            <span>UI</span>
+        </div>
+
+    </article>
+
+</div>
+</section>
+
+<!-- GOALS -->
+
+<section class="section">
+
+<div class="section-heading">
+    <div>
+        <p class="eyebrow">MY GOALS</p>
+        <h2>Still growing, still curious.</h2>
+    </div>
+
+    <p>
+        I know I still have a lot to learn, and that's what makes this journey exciting.
+    </p>
+</div>
+
+<div class="about-copy">
+    My goal is to become a skilled IT professional who can create useful, reliable, and user-friendly technology. For now, I'm focused on strengthening my fundamentals, gaining more hands-on experience, and learning from every opportunity.
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div>
+    <p class="eyebrow">GET IN TOUCH</p>
+
+    <h2>
+        Let's connect<br>
+        <em>and share ideas.</em>
+    </h2>
+
+    <p>
+        Thank you for visiting myportfolio. Feel free to reach out for collaborations, project discussions, or networking.
+    </p>
+</div>
+
+<div class="contact-links">
+
+    <a href="mailto:your.delacruz_ghilbert@yahoo.com.ph">
+        EMAIL / delacruz_ghilbert@yahoo.com.ph ↗
+    </a>
+
+    <a href="https://github.com/ghilbert" target="_blank">
+        GITHUB / ghilbert ↗
+    </a>
+
+    <a href="tel:+639451901163">
+        CONTACT NUMBERS / +63 945 190 1163   |    +63 950 449 8685 ↗
+    </a>
+
+   
+
+</div>
+
+</section>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    <span>
+        © <span id="year"></span> Gilbert Dela Cruz · Portfolio
+    </span>
+
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
+        const el = document.querySelector(a.getAttribute("href"));
+
+        if (el) {
+            e.preventDefault();
+            el.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
